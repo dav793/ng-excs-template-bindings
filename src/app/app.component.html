@@ -1,9 +1,13 @@
 
 <p>My name is: {{name}}</p>
 
-<p>My zip code is: <input type="text" (input)="validateZipCode()" [(ngModel)]="zipCode"/></p>
+<label>
+  My zip code is:
+  <input type="text" value="{{zipCode}}"/>
+</label>
 
-<p class="error-text" [hidden]="zipCodeIsValid">Zip code is not valid</p>
+<p class="error-text" [hidden]="zipCodeIsValid">Zip code {{zipCode}} is not valid</p>
+<p class="success-text" [hidden]="!zipCodeIsValid">Zip code {{zipCode}} is valid!</p>
 
 <button (click)="changeName()">Change my name</button>
 <button (click)="changeZipCode()">Change my zip code</button>

@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 /**
- *  - Como puedo hacer para que el elemento input refleje los cambios a la variable zipCode del componente?
- *  - Como puedo hacer para que los cambios programaticos a zipCode causen que se compruebe su validez automaticamente?
- *  - Como puedo hacer para que el componente compruebe la validez de zipCode apenas inicie?
+ *  - Como hago para que el elemento input propague sus propios cambios a la variable zipCode del componente?
+ *  - Como hago para que los cambios en el elemento input causen que se compruebe la validez de zipCode automaticamente?
+ *  - Como hago para que los cambios programaticos (desde el componente) a zipCode causen que se compruebe su validez automaticamente?
+ *  - Como hago para que el componente compruebe la validez de zipCode apenas inicie?
  */
 
 @Component({
@@ -11,7 +12,7 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   name = 'Pablo López';
   zipCode = '123456';
@@ -23,7 +24,6 @@ export class AppComponent implements OnInit {
 
   changeZipCode() {
     this.zipCode = '33152';
-    this.validateZipCode();
   }
 
   validateZipCode() {
@@ -31,10 +31,6 @@ export class AppComponent implements OnInit {
       this.zipCodeIsValid = true;
     else
       this.zipCodeIsValid = false;
-  }
-
-  ngOnInit() {
-    this.validateZipCode();
   }
 
 }
